@@ -1,0 +1,164 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "time-picker": {
+      "projectType": "library",
+      "root": "projects/time-picker",
+      "sourceRoot": "projects/time-picker/src",
+      "prefix": "qp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/time-picker/tsconfig.lib.json",
+            "project": "projects/time-picker/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/time-picker/src/test.ts",
+            "tsConfig": "projects/time-picker/tsconfig.spec.json",
+            "karmaConfig": "projects/time-picker/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/time-picker/tsconfig.lib.json",
+              "projects/time-picker/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "time-picker-example": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/time-picker-example",
+      "sourceRoot": "projects/time-picker-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/time-picker-example",
+            "index": "projects/time-picker-example/src/index.html",
+            "main": "projects/time-picker-example/src/main.ts",
+            "polyfills": "projects/time-picker-example/src/polyfills.ts",
+            "tsConfig": "projects/time-picker-example/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/time-picker-example/src/favicon.ico",
+              "projects/time-picker-example/src/assets"
+            ],
+            "styles": [
+              "projects/time-picker-example/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/time-picker-example/src/environments/environment.ts",
+                  "with": "projects/time-picker-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "time-picker-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "time-picker-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "time-picker-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/time-picker-example/src/test.ts",
+            "polyfills": "projects/time-picker-example/src/polyfills.ts",
+            "tsConfig": "projects/time-picker-example/tsconfig.spec.json",
+            "karmaConfig": "projects/time-picker-example/karma.conf.js",
+            "assets": [
+              "projects/time-picker-example/src/favicon.ico",
+              "projects/time-picker-example/src/assets"
+            ],
+            "styles": [
+              "projects/time-picker-example/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/time-picker-example/tsconfig.app.json",
+              "projects/time-picker-example/tsconfig.spec.json",
+              "projects/time-picker-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/time-picker-example/e2e/protractor.conf.js",
+            "devServerTarget": "time-picker-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "time-picker-example:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "time-picker"
+}

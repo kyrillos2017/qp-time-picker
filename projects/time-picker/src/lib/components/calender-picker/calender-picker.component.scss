@@ -1,0 +1,77 @@
+@import '../../../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+$qp-gray: #f3f3f3;
+$qp-gray2: #757575;
+$qp-gray3: #e8e8e8;
+$qp-hover: rgb(255, 167, 160);
+$qp-hover2: #ffd8d8;
+$qp-hover3: #a55e59;
+$qp-red: #F44336;
+$qp-darkred: #801c14;
+$qp-r:20px;
+*{box-sizing: border-box;}
+
+.qp-time-picker .qp-hour{
+    height: 56px;
+    background: $qp-gray;
+    border: 1px solid #d0d0d0;
+    min-width: 95px;
+}
+.qp-time-picker .qp-hour span{
+    color:$qp-gray2;
+    cursor: pointer;
+    width: 100%;
+}
+.qp-time-picker .qp-hour span div{
+    padding-right: 5px;
+    padding-left: 5px;
+    background-color: $qp-gray3;
+}
+.qp-time-picker .qp-hour span:hover,.qp-time-picker .qp-hour span:hover div{
+    background: $qp-hover !important;
+    color: #fff !important;
+}
+
+.middle{
+    width: 0px;
+    height: 18px;
+    transition: .3s ease-in-out;
+}
+.qp-time-picker .qp-hour:hover .middle{
+    width: 20px;    
+    background-color: $qp-hover2 !important;
+}
+.qp-red{background: $qp-red !important; color: #fff !important;}
+.qp-hover{background: $qp-hover !important; color: #fff !important;}
+
+.qp-red span, .qp-hover span{color: #fff !important;}
+
+
+
+
+.qp-start{
+    background: $qp-red !important;
+    color: #fff !important;
+}
+.qp-between{
+    background: $qp-hover !important;
+    color: #fff !important;
+}
+.qp-end{
+    background: $qp-red !important;
+    color: #fff !important;
+}
+.qp-started{
+    background: $qp-darkred !important;
+    color: #fff !important;
+    pointer-events: none;
+}
+.qp-betweened{
+    background: $qp-hover3 !important;
+    color: #fff !important;
+    pointer-events: none;
+}
+.qp-ended{
+    background: $qp-darkred !important;
+    color: #fff !important;
+    pointer-events: none;
+}

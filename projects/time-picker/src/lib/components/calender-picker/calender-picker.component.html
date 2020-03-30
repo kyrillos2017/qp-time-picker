@@ -1,0 +1,24 @@
+<div class="row w-100 qp-time-picker m-0 align-items-center justify-content-center">
+    <div class="qp-hour d-flex justify-content-between align-items-top" *ngFor="let h of hours">
+        <span (click)="startClick($event)" id='{{h.id}}'
+            [ngClass]="{'qp-start': time.startWith == h.id ,'qp-started': time.startsArr.includes(h.id.toString()), 'qp-between' : time.betweenThem.includes(h.id.toString()) ,'qp-betweened': time.betweensArr.includes(h.id.toString()), 'qp-end': time.endWith == h.id ,'qp-ended': time.endsArr.includes(h.id.toString()) } ">
+            <div
+                [ngClass]="{'qp-start': time.startWith == h.id ,'qp-started': time.startsArr.includes(h.id.toString()), 'qp-between' : time.betweenThem.includes(h.id.toString()) ,'qp-betweened': time.betweensArr.includes(h.id.toString()), 'qp-end': time.endWith == h.id ,'qp-ended': time.endsArr.includes(h.id.toString()) } ">
+                <div [ngClass]="{'qp-start': time.startWith == h.id ,'qp-started': time.startsArr.includes(h.id.toString()), 'qp-between' : time.betweenThem.includes(h.id.toString()) ,'qp-betweened': time.betweensArr.includes(h.id.toString()), 'qp-end': time.endWith == h.id ,'qp-ended': time.endsArr.includes(h.id.toString()) } "
+                    class="d-inline p-0" *ngIf="h.hour < 10">0</div>{{h.hour}}:{{h.minA}}
+            </div>
+        </span>
+        <span class="qp-30" (click)="startClick($event)" id="{{h.id}}{{h.minC}}"
+                [ngClass]="{'qp-start': time.startWith == h.id+h.minC ,'qp-started': time.startsArr.includes((h.id+h.minC).toString()), 'qp-between' : time.betweenThem.includes((h.id+h.minC).toString()) ,'qp-betweened': time.betweensArr.includes((h.id+h.minC).toString()), 'qp-end': time.endWith == h.id+h.minC ,'qp-ended': time.endsArr.includes((h.id+h.minC).toString()) }">
+            <div
+                [ngClass]="{'qp-start': time.startWith == h.id+h.minC ,'qp-started': time.startsArr.includes((h.id+h.minC).toString()), 'qp-between' : time.betweenThem.includes((h.id+h.minC).toString()) ,'qp-betweened': time.betweensArr.includes((h.id+h.minC).toString()), 'qp-end': time.endWith == h.id+h.minC ,'qp-ended': time.endsArr.includes((h.id+h.minC).toString()) }">
+                {{h.minC}}{{h.shift}}</div>
+        </span>
+    </div>
+</div>
+
+
+<div class="mt-3 w-100">
+    <button [disabled]='!time.startWith' [ngClass]="{'bg-danger': time.startWith, 'bg-light': !time.startWith}" (click)='clear()'
+        class="w-100 text-center text-white bg-danger rounded-pill border-0 qp-clear">Clear</button>
+</div>
