@@ -26,7 +26,7 @@ $qp-r:20px;
     padding-left: 5px;
     background-color: $qp-gray3;
 }
-.qp-time-picker .qp-hour span:hover,.qp-time-picker .qp-hour span:hover div{
+.qp-time-picker .qp-hour > span:hover,.qp-time-picker .qp-hour span:hover  div{
     background: $qp-hover !important;
     color: #fff !important;
 }
@@ -75,3 +75,4 @@ $qp-r:20px;
     color: #fff !important;
     pointer-events: none;
 }
+.text-transparent {color: transparent;}

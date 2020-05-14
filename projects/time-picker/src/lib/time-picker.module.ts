@@ -11,7 +11,6 @@ import { CalenderPickerComponent } from './components/calender-picker/calender-p
   imports: [
     BrowserModule,
     FormsModule,
-    
   ],
   exports: [TimePickerComponent,CalenderPickerComponent]
 })

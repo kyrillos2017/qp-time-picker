@@ -9,11 +9,22 @@ export class AppComponent {
   title = 'time-picker-example';
   time = {}
 
-  startsArr= ['3','2130'];
-  endsArr= ['530','23'];
-  betweensArr= ['330','4','430','5','2230','22'];
+  // startsArr= ['3','2130'];
+  // endsArr= ['530','23'];
+  // betweensArr= ['330','4','430','5','2230','22'];
+  lockedRooms: String[] = [''];
+  data: any[];
+  startsArr= [''];
+  endsArr= [''];
+  betweensArr= [''];
 
-  changeTimePicker(time){
+ress;
+  changeTimePicker(time) {
     this.time = time;
+    let resTime: any[] = []
+    this.ress = resTime = [time.startWith.startWith, time.endWith.endWith, ...time.betweenThem]
+    let empty = resTime.indexOf('')
+    resTime.slice(empty, 1)
+    this.lockedRooms = []
   }
 }

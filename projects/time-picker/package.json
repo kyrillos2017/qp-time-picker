@@ -1,5 +1,5 @@
 {
-  "name": "time-picker",
+  "name": "qp-time-picker",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
