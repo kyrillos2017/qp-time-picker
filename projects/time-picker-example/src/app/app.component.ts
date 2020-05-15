@@ -19,10 +19,12 @@ export class AppComponent {
   betweensArr= [''];
 
 ress;
+ressval;
   changeTimePicker(time) {
     this.time = time;
     let resTime: any[] = []
     this.ress = resTime = [time.startWith.startWith, time.endWith.endWith, ...time.betweenThem]
+    this.ressval = resTime = [time.startWith.value, time.endWith.value]
     let empty = resTime.indexOf('')
     resTime.slice(empty, 1)
     this.lockedRooms = []
